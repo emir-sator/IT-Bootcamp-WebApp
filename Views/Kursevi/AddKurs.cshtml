@@ -1,0 +1,56 @@
+﻿@model RS1SeminarskiRad2020.Models.Kurs
+@{
+    ViewBag.Title = "Add Kurs";
+}
+
+<html>
+
+<head>
+    <title>Dodaj kurs</title>
+</head>
+<body>
+    <h2>Dodavanje kursa</h2>
+
+    <form asp-action="SnimiKurs" method="post">
+        <input asp-for="KursID" style="display: none" class="form-control" /> <br />
+
+        <div class="form-group">
+            <label>Ime Kursa</label>
+            <input asp-for="Naziv" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Oznaka</label>
+            <input asp-for="Oznaka" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Cijena</label>
+            <input asp-for="Cijena" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Datum Pocetka</label>
+            <input asp-for="DatumPocetka" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Datum Zavrsetka</label>
+            <input asp-for="DatumZavrsetka" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Opis</label>
+            <input asp-for="Opis" class="form-control" />
+        </div>
+
+        <button type="submit" value="" class="btn btn-primary"><i class="fas fa-save"></i></button>
+    </form>
+</body>
+
+
+
+
+</html>
+<br />
+<a asp-controller="Administrator" asp-action="Crud" class="btn btn-danger"><i class="fas fa-arrow-left"></i></a>

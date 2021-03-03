@@ -1,0 +1,49 @@
+﻿@model List<Microsoft.AspNetCore.Identity.IdentityRole>
+@{
+    ViewData["Title"] = "Role Manager";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Upravitelj uloga</h1>
+@Html.AntiForgeryToken()
+<form method="post" asp-action="DodajUlogu" asp-controller="Administrator">
+    <div class="input-group">
+        <input name="roleName" class="form-control w-25">
+        <span class="input-group-btn">
+            <button class="btn btn-info">Dodaj novu ulogu</button>
+        </span>
+    </div>
+</form>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID uloge</th>
+            <th>Uloga</th>
+            <th>Akcija</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model)
+        {
+            <tr>
+                <td>@role.Id</td>
+                <td>@role.Name</td>
+                <td>
+
+                    <form asp-controller="Administrator" asp-action="IzbrisiUlogu" asp-route-id="@role.Id" method="post">
+
+                        <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('Da li ste sigurni da želite izbrisati ulogu: @role.Name')">
+                            Izbriši
+                        </button>
+                    </form>
+
+                </td>
+
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Administrator" asp-action="Upravljanje">Nazad</a>

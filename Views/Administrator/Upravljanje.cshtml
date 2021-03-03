@@ -1,0 +1,30 @@
+﻿@*@using RS1SeminarskiRad2020.Models
+@model List<RS1SeminarskiRad2020.ViewModels.UserRolesVM>*@
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Administracija</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+
+            <td>
+                <a class="btn btn-primary" asp-controller="Administrator" asp-action="Crud">Unos i izmjena podataka</a>
+                <a class="btn btn-primary" asp-controller="Administrator" asp-action="DodajUlogu">Dodavanje nove uloge</a>
+                <a class="btn btn-primary" asp-controller="Administrator" asp-action="Index">Upravljanje ulogama</a>
+            </td>
+            
+                
+        </tr>
+        
+    </tbody>
+</table>

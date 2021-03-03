@@ -1,0 +1,36 @@
+﻿@using RS1SeminarskiRad2020.Models
+@{
+    List<Ciklus> ciklusi = (List<Ciklus>)ViewData["ciklusi"];
+}
+@model RS1SeminarskiRad2020.Models.Ciklus
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Naziv</th>
+            <th scope="col">Opcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ciklusi)
+        {
+            <tr>
+                <th>@item.Naziv</th>
+                <th><a asp-action="Delete" asp-route-id="@item.CiklusID" class="btn btn-danger">Delete</a></th>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<form asp-action="Save" method="post" class="form-inline">
+    <input asp-for="CiklusID" style="display: none" class="form-control" /><br />
+
+    <div class="form-group">
+        <input asp-for="Naziv" required="required" type="text" class="form-control" placeholder="Naziv ciklusa" /><br />
+        <input class="btn btn-success" type="submit" value="Dodaj" />
+    </div>
+
+</form>
+
+<br />
+<a asp-controller="Administrator" asp-action="Crud">Nazad</a>

@@ -1,0 +1,41 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+	List<Kurs> kursevi = (List<Kurs>)ViewData["najnovijiKursevi"];
+	List<int> datumDoPocetka = new List<int>();
+	foreach (var item in kursevi)
+	{
+		datumDoPocetka.Add((int)(item.DatumPocetka - DateTime.UtcNow).TotalDays);
+	}
+}
+<div class="picture-container">
+	<div class="picture-text">
+		<h1 class="display-4">Web Management za IT bootcamp servis</h1>
+		<p>Registrujte se i naučite nešto novo. IT bootcamp - Najbolje mjesto za edukaciju!</p>
+	</div>
+	<div class="picture-bootcamp"></div>
+</div>
+<div class="text-center" style="margin-top:80vh">
+
+	<h2 style="margin-top:10%; margin-bottom:7%; font-weight:bold; font-size:2.3rem;">Ovi kursevi uskoro pocinju!</h2>
+
+	<div class="container">
+		<div class="row">
+			@for (int i = kursevi.Count - 1; i >= 0; i--)
+			{
+				@if (datumDoPocetka[i] <= 0)
+					continue;
+				<div class="col-sm" style="margin-top:2%;">
+					<div class="card" style="width: 18rem;">
+						<div class="card-body">
+							<h4 class="card-title" style="font-weight:bold;">@kursevi[i].Naziv</h4>
+							<p style="color:#ff5d8f; font-weight:bold;">@datumDoPocetka[i] dana do početka!</p>
+							<p class="card-text">@kursevi[i].Opis</p>
+							<a class="btn btn-info" asp-controller="Kursevi" asp-action="Index">Registruj se!</a>
+						</div>
+					</div>
+				</div>
+			}
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,37 @@
+﻿@using RS1SeminarskiRad2020.Models
+@{
+    List<Grupa> grupe = (List<Grupa>)ViewData["grupe"];
+}
+@model RS1SeminarskiRad2020.Models.Grupa
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Naziv</th>
+            <th scope="col">Opcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in grupe)
+        {
+            <tr>
+                <th>@item.Naziv</th>
+                <th><a asp-action="Delete" asp-route-id="@item.GrupaID" class="btn btn-danger">Izbriši</a></th>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<form asp-action="Save" method="post" class="form-inline">
+    <input asp-for="GrupaID" style="display: none" class="form-control" /><br />
+
+    <div class="form-group">
+        <input asp-for="Naziv" required="required" type="text" class="form-control" placeholder="Naziv grupe" /><br />
+        <input class="btn btn-success" type="submit" value="Dodaj" />
+    </div>
+
+</form>
+
+<br />
+<a asp-controller="Administrator" asp-action="Crud">Nazad</a>
+

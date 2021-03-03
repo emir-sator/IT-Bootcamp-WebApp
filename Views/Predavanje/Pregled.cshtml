@@ -1,0 +1,43 @@
+﻿@{
+   ViewBag.Title = "Pregled";
+   Predavanje Predavanje = (Predavanje)ViewData["predavanje"];
+   Kurs Kurs = (Kurs)ViewData["kurs"];
+   Korisnik Korisnik = (Korisnik)ViewData["korisnik"];
+   Kabinet Kabinet = (Kabinet)ViewData["kabinet"];
+}
+<div class="container">
+	<div class="row mb-3">
+		<div class="col-md-3"><h4>Naziv predavanja: </h4></div>
+		<div class="col-md-8"><h4>@Predavanje.Naziv</h4></div>
+	</div>
+
+	<div class="row mb-3">
+		<div class="col-md-3"><h4>Datum početka: </h4></div>
+		<div class="col-md-8"><h4>@Predavanje.Datum.ToShortDateString()</h4></div>
+	</div>
+
+	<div class="row mb-3">
+		<div class="col-md-3"><h4>Satnica početka: </h4></div>
+		<div class="col-md-8"><h4>@Predavanje.SatnicaPocetka.ToString()</h4></div>
+	</div>
+
+	<div class="row mb-3">
+		<div class="col-md-3"><h4>Satnica završetka: </h4></div>
+		<div class="col-md-8"><h4>@Predavanje.SatnicaZavrsetka.ToString()</h4></div>
+	</div>
+
+	<div class="row mb-3">
+		<div class="col-md-3"><h4>Dio kursa: </h4></div>
+		<div class="col-md-8"><h4>@Kurs.Naziv</h4></div>
+	</div>
+
+	<div class="row mb-3">
+		<div class="col-md-3"><h4>Predaje: </h4></div>
+		<div class="col-md-8"><h4>@(Korisnik.Ime+ " " + @Korisnik.Prezime)</h4></div>
+	</div>
+
+	<div class="row mb-3">
+		<div class="col-md-3"><h4>Kabinet: </h4></div>
+		<div class="col-md-8"><h4>@Kabinet.Naziv</h4></div>
+	</div>
+</div>

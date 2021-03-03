@@ -1,0 +1,55 @@
+﻿@{
+	ViewData["Title"] = "Kabineti";
+	List<Kabinet> Kabineti = (List<Kabinet>)ViewData["kabineti"];
+}
+@using RS1SeminarskiRad2020.Models
+@model RS1SeminarskiRad2020.Models.Kabinet
+
+
+<table class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">Naziv</th>
+			<th scope="col">Kapacitet</th>
+			<th scope="col">Kursevi</th>
+			<th scope="col">Opcija</th>
+		</tr>
+	</thead>
+	<tbody class="table-bordered">
+		@foreach (var item in Kabineti)
+		{
+		<tr>
+			<th scope="col">@item.Naziv</th>
+			<th scope="col">@item.Kapacitet</th>
+			<th scope="col">
+				@{
+					if (item.Predavanja == null || item.Predavanja.Count == 0)
+					{
+						<p>Predavanja nisu registrovana</p>
+					}
+					else
+					{
+						<a asp-controller="Kabinet" asp-action="PregledPredavanja" asp-route-KabID="@item.KabinetID" class="btn btn-info">Pregledaj Predavanja</a>
+					}
+				}
+
+			</th>
+			<th scope="col"><a asp-action="Delete" asp-route-id="@item.KabinetID" class="btn btn-danger"><i class="fas fa-trash"></i></a></th>
+		</tr>
+		}
+	</tbody>
+</table>
+<br />
+<form asp-action="Save" method="post" class="form-inline">
+	<input asp-for="KabinetID" style="display: none" class="form-control" /><br />
+
+	<div class="form-group">
+		<input asp-for="Naziv" required="required" type="text" class="form-control" placeholder="Naziv kabineta" style="margin-right:10px;" /><br />
+		<input asp-for="Kapacitet" required="required" type="text" class="form-control" placeholder="Kapacitet" style="margin-right: 10px;" /><br />
+		<input class="btn btn-success" type="submit" value="Dodaj" />
+	</div>
+
+</form>
+
+<br />
+<a asp-controller="Administrator" asp-action="Crud" class="btn btn-danger"><i class="fas fa-arrow-left"></i></a>

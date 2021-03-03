@@ -1,0 +1,64 @@
+﻿@using RS1SeminarskiRad2020.ViewModels.KursVM
+@using System.Security.Claims;
+@{
+	List<DodajKursVM> kursevi = (List<DodajKursVM>)ViewData["kursevi"];
+}
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<Korisnik> SignInManager
+@inject UserManager<Korisnik> UserManager
+<html>
+<body>
+	<div style="width:100%; margin:3% 0;">
+		<form asp-controller="Kursevi" asp-action="Index">
+			<input class="form-control" type="text" placeholder="Pretrazi kurseve" aria-label="Search" style="display:inline-block; width:95%" name="SearchString">
+			<button type="submit" value="" class="btn btn-primary" style="display:inline-block; width:4%;"><i class="fas fa-search"></i></button>
+		</form>
+	</div>
+	
+	
+	<div class="row" style="z-index:1;">
+		@for (int i = 0; i < kursevi.Count; i++)
+		{
+<div class="col-sm-6">
+	<div class="card" style="margin-bottom:20px">
+		<div class="card-body">
+			<h4 class="card-title">@kursevi[i].Naziv</h4>
+			<h6 class="card-text">@kursevi[i].Opis</h6>
+			<h6 class="card-text">Cijena: @kursevi[i].Cijena KM</h6>
+			@if (User.Identity.IsAuthenticated && SignInManager.IsSignedIn(User) && User.IsInRole("Polaznik"))
+			{
+		<a asp-controller="Kursevi" asp-action="PrijavaPrikaz" asp-route-id="@kursevi[i].KursID" class="btn btn-primary">Odaberi</a> }
+	else if (!SignInManager.IsSignedIn(User))
+	{
+		<a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Login">Prijavi se na sistem</a> }
+
+
+	else if (!User.Identity.IsAuthenticated)
+	{
+		<p>
+			Kliknite
+			<a asp-area="Identity" asp-page="/Account/Login">ovdje </a> da se prijavite ili napravite novi račun kako bi ste se mogli prijaviti na kurs.
+		</p>}
+
+			@if (SignInManager.IsSignedIn(User)){
+				<a asp-controller="Dokument" asp-action="Index" asp-route-kursID="@kursevi[i].KursID" class="btn btn-outline-primary"><i class="fas fa-file-alt"></i></a>
+			}
+
+			@if (SignInManager.IsSignedIn(User) && (User.IsInRole("Administrator") || User.IsInRole("Predavač")))
+			{
+				<a asp-action="EditKurs" asp-route-id="@kursevi[i].KursID" class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
+				<a asp-controller="Dokument" asp-action="Dodaj" asp-route-idKursa="@kursevi[i].KursID" asp-route-idUser="@kursevi[i].UserID" class="btn btn-outline-primary"><i class="fas fa-file-upload"></i></a>
+				<a asp-action="SubscribeNotifications" class="btn btn-outline-primary"><i class="fas fa-bell"></i></a>
+				@if (User.IsInRole("Administrator")){
+					<a asp-action="DeleteKurs" asp-route-id="@kursevi[i].KursID" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+				}
+			}
+
+
+		</div>
+	</div>
+</div>}
+	</div>
+</body>
+</html>

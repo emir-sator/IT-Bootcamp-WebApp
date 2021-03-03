@@ -1,0 +1,42 @@
+﻿@model RS1SeminarskiRad2020.ViewModels.PolaznikGrupaVM.PolaznikGrupaIndexVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h4>Dodjeljivanje grupe polaznicima za određeni kurs</h4>
+<hr />
+<div class="row">
+    <div class="col col-md-3">
+        <form asp-controller="GrupaPolaznik" asp-action="Snimi">
+
+            <div class="form-group">
+                <label asp-for="KursID" class="control-label">Kurs</label>
+                <select class="form-control" asp-for="KursID" asp-items="Model.Kursevi">
+                    <option>Odaberite kurs</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="KorisnikId" class="control-label">Polaznik</label>
+                <select class="form-control" asp-for="KorisnikId" asp-items="Model.Polaznici">
+                    <option>Odaberite polaznika</option>
+                </select>
+            </div>  
+            
+            <div class="form-group">
+                <label asp-for="GrupaID" class="control-label">Grupa</label>
+                <select class="form-control" asp-for="GrupaID" asp-items="Model.Grupe">
+                    <option>Odaberite grupu</option>
+                </select>
+            </div>
+
+
+
+            <input type="submit" value="Odaberi" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+<br />
+<a asp-controller="Administrator" asp-action="Crud">Nazad</a>

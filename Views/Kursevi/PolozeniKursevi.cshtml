@@ -1,0 +1,46 @@
+﻿@model RS1SeminarskiRad2020.ViewModels.KursVM.PolozenikurseviVM
+<h2>Moji položeni kursevi</h2>
+<hr />
+<br />
+
+<table  id="tabela" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Naziv kursa</th>
+            <th>Datum početka</th>
+            <th>Datum završetka</th>
+            <th>Opis</th>
+
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Redovi)
+        {
+            <tr>
+                <td>@x.NazivKursa</td>
+                <td>@x.DatumPocetka</td>
+                <td>@x.DatumZavrsetka</td>
+                <td class="zadnja">@x.Opis</td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+<br />
+<style type="text/css">
+    #tabela td:last-child
+    td {
+        width: 350px;
+        
+    }
+
+    th {
+        width: 100px;
+    }
+</style>
+
+<a asp-area="Identity" asp-page="/Account/Manage/Index">Nazad</a>

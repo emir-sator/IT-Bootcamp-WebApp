@@ -1,0 +1,22 @@
+﻿@model RS1SeminarskiRad2020.ViewModels.PolaznikDodajVM
+
+<h2>Dodaj ostale podatke</h2>
+<hr />
+<br />
+<div class="row">
+   <div class="col col-md-4">
+       <form asp-action="Snimi">
+           <input asp-for="KorisnikId" hidden/>
+           <div class="form-group">
+               <label asp-for="Fakultet" class="control-label">Fakultet</label>
+               <input asp-for="Fakultet" class="form-control"/>
+
+           </div>
+           <div class="form-group">
+               <input type="submit" value="Sačuvaj" class="btn btn-primary"/>
+           </div>
+       </form>
+
+   </div>
+
+</div>

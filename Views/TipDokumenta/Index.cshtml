@@ -1,0 +1,33 @@
+﻿@using RS1SeminarskiRad2020.Models
+@{ List<TipDokumenta> tipDokumenata = (List<TipDokumenta>)ViewData["tipoviDokumenata"]; }
+@model RS1SeminarskiRad2020.Models.TipDokumenta
+
+<table class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">Naziv</th>
+			<th scope="col">Opcija</th>
+		</tr>
+	</thead>
+	<tbody class="table-bordered">
+		@foreach (var item in tipDokumenata)
+		{
+<tr>
+	<th scope="col">@item.Naziv</th>
+	<th scope="col"><a asp-action="Delete" asp-route-id="@item.TipDokumentaID" class="btn btn-danger"><i class="fas fa-trash"></i></a></th>
+</tr>}
+	</tbody>
+</table>
+<br />
+<form asp-action="Save" method="post" class="form-inline">
+	<input asp-for="TipDokumentaID" style="display: none" class="form-control" /><br />
+
+	<div class="form-group">
+		<input asp-for="Naziv" required="required" type="text" class="form-control" placeholder="Naziv tipa dokumenta" style="margin-right:10px;" /><br />
+		<input class="btn btn-success" type="submit" value="Dodaj" />
+	</div>
+
+</form>
+
+<br />
+<a asp-controller="Administrator" asp-action="Crud" class="btn btn-danger"><i class="fas fa-arrow-left"></i></a>

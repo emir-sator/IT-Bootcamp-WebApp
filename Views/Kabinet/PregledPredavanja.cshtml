@@ -1,0 +1,22 @@
+﻿@{
+   ViewData["Title"] = "Predavanja";
+   List<Predavanje> Predavanja = (List<Predavanje>)ViewData["predavanja"];
+}
+<table class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">Naziv</th>
+			<th scope="col">Opcija</th>
+		</tr>
+	</thead>
+	<tbody class="table-bordered">
+		@foreach (var item in Predavanja)
+		{
+			<tr>
+				<th scope="col">@item.Naziv</th>
+				<th scope="col"><a asp-controller="Predavanje" asp-action="ViewPredavanje" asp-id="@item.PredavanjeID" class="btn btn-info">View</a></th>
+			</tr>
+		}
+	</tbody>
+</table>
+<a asp-controller="Kabinet" asp-action="Index" class="btn btn-danger"><i class="fas fa-arrow-left"></i></a>

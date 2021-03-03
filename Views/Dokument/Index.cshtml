@@ -1,0 +1,38 @@
+﻿@using RS1SeminarskiRad2020.Models
+@model Dokument
+@{
+   ViewData["Title"] = "Dokumenti";
+   List<Dokument> files = (List<Dokument>)ViewData["dokumenti"];
+}
+<h4>Lista svih dokumenata</h4>
+<hr />
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Naziv</th>
+			<th>Kurs</th>
+			<th>Ekstenzija</th>
+			<th>Tip</th>
+			<th>Datum Objavljivanja</th>
+			<th>Satnica Objavljivanja</th>
+			<th>Opcije</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var file in files)
+		{
+		<tr>
+			<td>@file.Naslov</td>
+			<td>@file.Kurs.Naziv</td>
+			<td>@file.Ekstenzija</td>
+			<td>@file.TipDokumenta.Naziv</td>
+			<td>@file.DatumObjavljivanja.ToShortDateString()</td>
+			<td>@file.SatnicaObjavljivanja.Hours.ToString() : @file.SatnicaObjavljivanja.Minutes.ToString()</td>
+			<td>
+				<a type="button" class="btn btn-primary" asp-controller="File" asp-action="DownloadFileFromFileSystem">Download</a>
+				<a type="button" class="btn btn-danger" asp-controller="File" asp-action="DeleteFileFromFileSystem">Delete</a>
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>

@@ -1,0 +1,62 @@
+﻿@model RS1SeminarskiRad2020.ViewModels.Prijava.PrijavaPrikazVM
+<h4>Prijave na kurs</h4>
+<br />
+<div class="row">
+    <div class="col col-md-4">
+        <form asp-controller="Prijava" asp-action="Index">
+            <label class="control-label">Filter za kurseve:</label>
+            <br />
+            <select class="form-control" asp-for="KursID" asp-items="@Model.Kursevi">
+
+                <option>Odaberi kurs</option>
+
+
+            </select>
+            <br />
+            <input type="submit" value="Filtriraj" />
+            <br />
+
+        </form>
+    </div>
+</div>
+<br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Kurs</th>
+            <th>Polaznik</th>
+            <th>Položio</th>
+            <th>Datum prijave</th>
+
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Redovi)
+        {
+            <tr>
+                <td>@x.NazivKurs</td>
+                <td>@x.ImePrezime</td>
+                @if (x.Polozio)
+                {
+                    <td><a asp-controller="Prijava" asp-action="IsPolozio" asp-route-id="@x.Id" class="btn btn-success">Da</a></td>
+                }
+                else
+                {
+                    <td><a asp-controller="Prijava" asp-action="IsPolozio" asp-route-id="@x.Id" class="btn btn-danger">Ne</a></td>
+                }
+                <td>@x.DatumPrijave.ToString("dd/MM/yyyy")</td>
+
+
+
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+<br />
+<a asp-controller="Administrator" asp-action="Crud">Nazad</a>

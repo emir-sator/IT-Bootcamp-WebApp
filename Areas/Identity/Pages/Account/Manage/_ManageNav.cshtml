@@ -1,0 +1,20 @@
+﻿@using RS1SeminarskiRad2020.Models
+@using System.Security.Claims;
+@inject SignInManager<Korisnik> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+@{
+    string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+<ul class="nav nav-pills flex-column">
+    <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profil</a></li>
+    @if (User.Identity.IsAuthenticated && SignInManager.IsSignedIn(User) && User.IsInRole("Polaznik"))
+    {
+        <li class="nav-item"><a class="nav-link" asp-controller="Kursevi" asp-action="PolozeniKursevi" asp-route-id="@userId">Položeni kursevi</a></li>
+        <li class="nav-item"><a class="nav-link" asp-controller="ProjekatUpload" asp-action="Index" asp-route-id="@userId">Upload projekta</a></li>
+    }
+    <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Lozinka</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Postavke dvostruke autentifikacije</a></li>
+    @*<li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Podaci</a></li>*@
+</ul>

@@ -1,0 +1,85 @@
+﻿
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tabela</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+	<tbody>
+
+
+		<tr>
+			<td>
+				Kursevi
+			</td>
+			<td>
+				<a class="btn btn-success" asp-controller="Kursevi" asp-action="AddKurs">Dodaj kurs</a>
+			</td>
+
+		</tr>
+
+		<tr>
+			<td>
+				Grupe
+			</td>
+			<td>
+				<a class="btn btn-success" asp-controller="Grupa" asp-action="Index">Dodaj grupu</a>
+			</td>
+
+		</tr>
+		<tr>
+			<td>
+				Polaznici - Grupe
+			</td>
+			<td>
+				<a class="btn btn-success" asp-controller="GrupaPolaznik" asp-action="Index">Dodijeli grupu polazniku</a>
+				<a class="btn btn-success" asp-controller="GrupaPolaznik" asp-action="PrikazGrupa">Grupe polaznika</a>
+
+			</td>
+
+		</tr>
+		<tr>
+			<td>
+				Prijave
+			</td>
+			<td>
+				<a class="btn btn-success" asp-controller="Prijava" asp-action="Index">Prijave polaznika</a>
+			</td>
+
+		</tr>
+
+		<tr>
+			<td>
+				Tipovi Dokumenata
+			</td>
+			<td>
+				<a class="btn btn-success" asp-controller="TipDokumenta" asp-action="Index">Tipovi Dokumenata</a>
+			</td>
+
+		</tr>
+
+		<tr>
+			<td>
+				Kabineti
+			</td>
+			<td>
+				<a class="btn btn-success" asp-controller="Kabinet" asp-action="Index">Kabineti</a>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Predavanja
+			</td>
+			<td>
+				<a class="btn btn-success" asp-controller="Predavanje" asp-action="Index">Predavanja</a>
+				<a class="btn btn-success" asp-controller="Predavanje" asp-action="Add">Dodaj predavanje</a>
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+<br />
+<a asp-controller="Administrator" asp-action="Upravljanje">Nazad</a>

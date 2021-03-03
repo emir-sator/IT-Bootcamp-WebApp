@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-RS1SeminarskiRad2020-31086204-9749-4A26-A14F-6FD24603D80B</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201111151429_korisnikPrijava.cs" />
+    <Compile Remove="Migrations\20201111151429_korisnikPrijava.Designer.cs" />
+    <Compile Remove="Migrations\20201112140511_mig.cs" />
+    <Compile Remove="Migrations\20201112140511_mig.Designer.cs" />
+    <Compile Remove="Migrations\20201112224743_nova1.cs" />
+    <Compile Remove="Migrations\20201112224743_nova1.Designer.cs" />
+    <Compile Remove="Migrations\20201114003635_crudTabeleEmir.cs" />
+    <Compile Remove="Migrations\20201114003635_crudTabeleEmir.Designer.cs" />
+    <Compile Remove="Migrations\20201114004207_crudTabeleEmir.cs" />
+    <Compile Remove="Migrations\20201114004207_crudTabeleEmir.Designer.cs" />
+    <Compile Remove="Migrations\20201114004917_crudTabeleEmir.cs" />
+    <Compile Remove="Migrations\20201114004917_crudTabeleEmir.Designer.cs" />
+    <Compile Remove="Migrations\20201114005303_crudTabeleEmir.cs" />
+    <Compile Remove="Migrations\20201114005303_crudTabeleEmir.Designer.cs" />
+    <Compile Remove="Migrations\20201114011438_crudTabeleEmir.cs" />
+    <Compile Remove="Migrations\20201114011438_crudTabeleEmir.Designer.cs" />
+    <Compile Remove="Migrations\20201114013212_crudTabeleEmir.cs" />
+    <Compile Remove="Migrations\20201114013212_crudTabeleEmir.Designer.cs" />
+    <Compile Remove="Migrations\20201114173700_polazniciGrupe.cs" />
+    <Compile Remove="Migrations\20201114173700_polazniciGrupe.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Enums.NET" Version="3.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="NPOI" Version="2.5.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    <PackageReference Include="WebEssentials.AspNetCore.PWA" Version="1.0.65" />
+    <PackageReference Include="WebPush-NetCore" Version="1.0.2" />
+  </ItemGroup>
+
+</Project>

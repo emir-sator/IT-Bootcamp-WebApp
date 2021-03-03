@@ -1,0 +1,17 @@
+{
+		"name": "IT bootcamp web managment",
+		"short_name": "IT Bootcamp",
+		"description": "Web Management za IT bootcamp servis",
+		"icons": [
+			{
+				"src": "/site-icon192.png",
+				"sizes": "192x192"
+			},
+			{
+				"src": "/site-icon.png",
+				"sizes": "512x512"
+			}
+		],
+		"display": "standalone",
+		"start_url": "/"
+}

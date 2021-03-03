@@ -1,0 +1,21 @@
+﻿@model RS1SeminarskiRad2020.ViewModels.ProjekatUploadVM.ProjekatUpload
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4>Upload projekta</h4>
+<hr />
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success alert-dismissible" style="margin-top:20px">
+        @ViewBag.Message
+    </div>
+}
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="files" multiple required />
+    <input type="text" autocomplete="off" placeholder="Opis projekta" name="description" required />
+    <button class="btn btn-success" type="submit" asp-controller="ProjekatUpload" asp-action="UploadToDatabase">Učitaj</button>
+</form>
+<br />
+<a asp-area="Identity" asp-page="/Account/Manage/Index">Nazad</a>
+

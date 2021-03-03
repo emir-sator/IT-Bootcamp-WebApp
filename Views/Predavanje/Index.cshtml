@@ -1,0 +1,33 @@
+﻿@{
+   ViewBag.Title = "Predavanja";
+   List<Predavanje> Predavanja = (List<Predavanje>)ViewData["predavanja"];
+}
+<h1>Predavanja</h1>
+<table class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">Naziv</th>
+			<th scope="col">Datum</th>
+			<th scope="col">Početak</th>
+			<th scope="col">Završetak</th>
+			<th scope="col">Opcija</th>
+		</tr>
+	</thead>
+	<tbody class="table-bordered">
+		@foreach (var item in Predavanja)
+		{
+			<p>@item.PredavanjeID</p>
+			<tr>
+				<th scope="col">@item.Naziv</th>
+				<th scope="col">@item.Datum.ToShortDateString()</th>
+				<th scope="col">@item.SatnicaPocetka</th>
+				<th scope="col">@item.SatnicaZavrsetka</th>
+				<th scope="col">
+					<a asp-controller="Predavanje" asp-action="Pregled" asp-route-id="@item.PredavanjeID" class="btn btn-success">View</a>
+					<a asp-controller="Predavanje" asp-action="Edit" asp-route-id="@item.PredavanjeID" class="btn btn-info"><i class="fas fa-edit"></i></a>
+					<a asp-controller="Predavanje" asp-action="Delete" asp-route-id="@item.PredavanjeID" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+				</th>
+			</tr>
+		}
+	</tbody>
+</table>
