@@ -8,12 +8,22 @@ can be found in the Excel file.
 The technologies and languages used for my functionalities are: c #, .NET core, little bit of JavaScript, MS SQL Server Management Studio.
 
 Notes:
+   - Before starting the application, you need to type "update-database" in Package Manager Console and press enter. After that, database will be created with test data. 
 
-Before starting the application, you need to type "update-database" in Package Manager Console and press enter. After that, database will be created with test data. 
+   - Newly registred user will take on "Polaznik" role.
 
 Login credentials
 
-Username: admin1@edu.fit.ba
+    - Administrator:
 
-Password: Admin5.
+          Username: admin1@edu.fit.ba	
+
+          Password: Admin5.
+
+    - Instructor
+
+          Username: predavac1@edu.fit.ba
+          
+          Password: Predavac1.
+
 
