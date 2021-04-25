@@ -7,8 +7,13 @@ can be found in the Excel file.
 
 The technologies and languages used for my functionalities are: c #, .NET core, little bit of JavaScript, MS SQL Server Management Studio.
 
+Notes:
+
+Before starting the application, you need to type "update-database" in Package Manager Console and press enter. After that, database will be created with test data. 
+
 Login credentials
 
 Username: admin1@edu.fit.ba
 
 Password: Admin5.
+
