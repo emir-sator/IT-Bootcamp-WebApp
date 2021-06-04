@@ -5,7 +5,7 @@ Our application is called Web Management Service for IT Bootcamp, with the main 
 student group records for course classes, uploading learning documents etc .. More detailed information about the participation of members of functionality implementation 
 can be found in the Excel file.
 
-The technologies and languages used for my functionalities are: c #, .NET core, little bit of JavaScript, MS SQL Server Management Studio.
+The technologies and languages used for my functionalities are: C#, ASP .NET core, little bit of JavaScript, MS SQL Server.
 
 Notes:
    - Before starting the application, you need to type "update-database" in Package Manager Console and press enter. After that, database will be created with test data. 
